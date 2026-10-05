@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title>usual.page</title>
+<meta name="description" content="usual.page - coming soon." />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='25' x='2' font-size='26' font-family='monospace'%3E%3E%3C/text%3E%3C/svg%3E" />
+<style>
+@import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
+/*
+ * Base stylesheets (reset.css, index.css) from The Monospace Web
+ * by Oskar Wickstrom - https://github.com/owickstrom/the-monospace-web
+ *
+ * Copyright 2024 Oskar Wickstrom
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * tokens.css, components.css and a11y.css are additions to that base, offered
+ * under the same license. See NOTICE for the full breakdown.
+ */
+
+/* --- src/reset.css --- */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	/*margin: 0;*/
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* --- src/index.css --- */
+/**
+ * By Oskar Wickström
+ * Licensed under the MIT License (https://github.com/owickstrom/the-monospace-web/blob/main/LICENSE.md)
+ **/
+
+:root {
+  --font-family: "JetBrains Mono", monospace;
+  --line-height: 1.20rem;
+  --border-thickness: 2px;
+  --text-color: #000;
+  --text-color-alt: #666;
+  --background-color: #fff;
+  --background-color-alt: #eee;
+
+  --font-weight-normal: 500;
+  --font-weight-medium: 600;
+  --font-weight-bold: 800;
+
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-size: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --text-color-alt: #aaa;
+    --background-color: #000;
+    --background-color-alt: #111;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+* + * {
+  margin-top: var(--line-height);
+}
+
+html {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+body {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: var(--line-height) 2ch;
+  max-width: calc(min(80ch, round(down, 100%, 1ch)));
+  line-height: var(--line-height);
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+  body {
+    padding: var(--line-height) 1ch;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  margin: calc(var(--line-height) * 2) 0 var(--line-height);
+  line-height: var(--line-height);
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: calc(2 * var(--line-height));
+  margin-bottom: calc(var(--line-height) * 2);
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+hr {
+  position: relative;
+  display: block;
+  height: var(--line-height);
+  margin: calc(var(--line-height) * 1.5) 0;
+  border: none;
+  color: var(--text-color);
+}
+hr:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: calc(var(--line-height) / 2 - var(--border-thickness));
+  left: 0;
+  width: 100%;
+  border-top: calc(var(--border-thickness) * 3) double var(--text-color);
+  height: 0;
+}
+
+a {
+  text-decoration-thickness: var(--border-thickness);
+}
+
+a:link, a:visited {
+  color: var(--text-color);
+}
+
+p {
+  margin-bottom: var(--line-height);
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+em {
+  font-style: italic;
+}
+
+sub {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  vertical-align: sub;
+  line-height: 0;
+  width: calc(1ch / 0.75);
+  font-size: .75rem;
+}
+
+table {
+  position: relative;
+  top: calc(var(--line-height) / 2);
+  width: calc(round(down, 100%, 1ch));
+  border-collapse: collapse;
+  margin: 0 0 calc(var(--line-height) * 2);
+}
+
+th, td {
+  border: var(--border-thickness) solid var(--text-color);
+  padding: 
+    calc((var(--line-height) / 2))
+    calc(1ch - var(--border-thickness) / 2)
+    calc((var(--line-height) / 2) - (var(--border-thickness)))
+  ;
+  line-height: var(--line-height);
+  vertical-align: top;
+  text-align: left;
+}
+table tbody tr:first-child > * {
+  padding-top: calc((var(--line-height) / 2) - var(--border-thickness));
+}
+
+
+th {
+  font-weight: 700;
+}
+.width-min {
+  width: 0%;
+}
+.width-auto {
+  width: 100%;
+}
+
+.header {
+  margin-bottom: calc(var(--line-height) * 2);
+}
+.header h1 {
+  margin: 0;
+}
+.header tr td:last-child {
+  text-align: right;
+}
+
+p {
+  word-break: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+img, video {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+img {
+  font-style: italic;
+  color: var(--text-color-alt);
+}
+
+details {
+  border: var(--border-thickness) solid var(--text-color);
+  padding: calc(var(--line-height) - var(--border-thickness)) 1ch;
+  margin-bottom: var(--line-height);
+}
+
+summary {
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+details[open] summary {
+  margin-bottom: var(--line-height);
+}
+
+details ::marker {
+  display: inline-block;
+  content: '▶';
+  margin: 0;
+}
+details[open] ::marker {
+  content: '▼';
+}
+
+details :last-child {
+  margin-bottom: 0;
+}
+
+pre {
+  white-space: pre;
+  overflow-x: auto;
+  margin: var(--line-height) 0;
+  overflow-y: hidden;
+}
+figure pre {
+  margin: 0;
+}
+
+pre, code {
+  font-family: var(--font-family);
+}
+
+code {
+  font-weight: var(--font-weight-medium);
+}
+
+figure {
+  margin: calc(var(--line-height) * 2) 3ch;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+figcaption {
+  display: block;
+  font-style: italic;
+  margin-top: var(--line-height);
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0 0 var(--line-height);
+}
+
+ul {
+  list-style-type: square;
+  padding: 0 0 0 2ch;
+}
+ol {
+  list-style-type: none;
+  counter-reset: item;
+  padding: 0;
+}
+ol ul,
+ol ol,
+ul ol,
+ul ul {
+  padding: 0 0 0 3ch;
+  margin: 0;
+}
+ol li:before { 
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+  font-weight: var(--font-weight-medium);
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li::marker {
+  line-height: 0;
+}
+
+::-webkit-scrollbar {
+    height: var(--line-height);
+}
+
+input, button, textarea {
+  border: var(--border-thickness) solid var(--text-color);
+  padding: 
+    calc(var(--line-height) / 2 - var(--border-thickness))
+    calc(1ch - var(--border-thickness));
+  margin: 0;
+  font: inherit;
+  font-weight: inherit;
+  height: calc(var(--line-height) * 2);
+  width: auto;
+  overflow: visible;
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: inline-grid;
+  place-content: center;
+  vertical-align: top;
+  width: 2ch;
+  height: var(--line-height);
+  cursor: pointer;
+}
+input[type=checkbox]:checked:before,
+input[type=radio]:checked:before {
+  content: "";
+  width: 1ch;
+  height: calc(var(--line-height) / 2);
+  background: var(--text-color);
+}
+input[type=radio],
+input[type=radio]:before {
+  border-radius: 100%;
+}
+
+button:focus, input:focus {
+  --border-thickness: 3px;
+  outline: none;
+}
+
+input {
+  width: calc(round(down, 100%, 1ch));
+}
+::placeholder {
+  color: var(--text-color-alt);
+  opacity: 1;
+}
+::-ms-input-placeholder {
+  color: var(--text-color-alt);
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--background-color-alt);
+}
+button:active {
+  transform: translate(2px, 2px);
+}
+
+label {
+  display: block;
+  width: calc(round(down, 100%, 1ch));
+  height: auto;
+  line-height: var(--line-height);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+}
+
+label input {
+  width: 100%;
+}
+
+.tree, .tree ul {
+  position: relative;
+  padding-left: 0;
+  list-style-type: none;
+  line-height: var(--line-height);
+}
+.tree ul {
+  margin: 0;
+}
+.tree ul li {
+  position: relative;
+  padding-left: 1.5ch;
+  margin-left: 1.5ch;
+  border-left: var(--border-thickness) solid var(--text-color);
+}
+.tree ul li:before {
+  position: absolute;
+  display: block;
+  top: calc(var(--line-height) / 2);
+  left: 0;
+  content: "";
+  width: 1ch;
+  border-bottom: var(--border-thickness) solid var(--text-color);
+}
+.tree ul li:last-child {
+  border-left: none;
+}
+.tree ul li:last-child:after {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  content: "";
+  height: calc(var(--line-height) / 2);
+  border-left: var(--border-thickness) solid var(--text-color);
+}
+
+.grid {
+  --grid-cells: 0;
+  display: flex;
+  gap: 1ch;
+  width: calc(round(down, 100%, (1ch * var(--grid-cells)) - (1ch * var(--grid-cells) - 1)));
+  margin-bottom: var(--line-height);
+}
+
+.grid > *,
+.grid > input {
+  flex: 0 0 calc(round(down, (100% - (1ch * (var(--grid-cells) - 1))) / var(--grid-cells), 1ch));
+}
+.grid:has(> :last-child:nth-child(1)) { --grid-cells: 1; }
+.grid:has(> :last-child:nth-child(2)) { --grid-cells: 2; }
+.grid:has(> :last-child:nth-child(3)) { --grid-cells: 3; }
+.grid:has(> :last-child:nth-child(4)) { --grid-cells: 4; }
+.grid:has(> :last-child:nth-child(5)) { --grid-cells: 5; }
+.grid:has(> :last-child:nth-child(6)) { --grid-cells: 6; }
+.grid:has(> :last-child:nth-child(7)) { --grid-cells: 7; }
+.grid:has(> :last-child:nth-child(8)) { --grid-cells: 8; }
+.grid:has(> :last-child:nth-child(9)) { --grid-cells: 9; }
+
+/* DEBUG UTILITIES */
+
+.debug .debug-grid {
+  --color: color-mix(in srgb, var(--text-color) 10%, var(--background-color) 90%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(var(--color) 0 1px, transparent 1px 100%),
+    repeating-linear-gradient(90deg, var(--color) 0 1px, transparent 1px 100%);
+  background-size: 1ch var(--line-height);
+  margin: 0;
+}
+
+.debug .off-grid {
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.debug-toggle-label {
+  text-align: right;
+}
+
+/* --- src/tokens.css --- */
+/* ==========================================================================
+   tokens.css — design tokens layered over The Monospace Web
+   --------------------------------------------------------------------------
+   Load AFTER src/index.css. Source order matters: the bridge in §0 overrides
+   the literals index.css declares, including the ones inside its
+   prefers-color-scheme block.
+
+     <link rel="stylesheet" href="src/reset.css">
+     <link rel="stylesheet" href="src/index.css">
+     <link rel="stylesheet" href="src/tokens.css">     <-- this file
+     <link rel="stylesheet" href="src/components.css">
+     <link rel="stylesheet" href="src/a11y.css">
+
+   Nothing in index.css is edited. It is driven entirely by a handful of custom
+   properties, so re-pointing those at a full ramp is enough to give the whole
+   stylesheet a verified palette and a three-state dark mode.
+
+   Direction of travel matters, and it differs by kind of token:
+
+     METRICS  index.css -> here.  --line-height and --border-thickness stay
+              canonical and everything here derives from them. Redefining them
+              would give the grid two sources of truth, and they would drift.
+
+     COLOR    here -> index.css.  The ramps below become canonical and the
+              bridge re-points index.css's four color properties at them.
+   ========================================================================== */
+
+/* ==========================================================================
+   §0  BRIDGE
+   ========================================================================== */
+
+:root {
+  /* Metrics: derived, never redefined. */
+  --grid-unit: var(--line-height);          /* 1.20rem — the vertical atom */
+  --grid-col: 1ch;                          /*           the horizontal atom */
+  --border-width: var(--border-thickness);  /* 2px */
+  --border-width-thin: 1px;                 /* hairlines only (badge, kbd) */
+
+  /* Color: index.css's four properties, re-pointed at the ramps in §2. */
+  --text-color: var(--color-text);
+  --text-color-alt: var(--color-text-muted);
+  --background-color: var(--color-bg);
+  --background-color-alt: var(--color-bg-muted);
+}
+
+/* ==========================================================================
+   §1  RAW RAMPS  (theme-independent; never used directly by components)
+   --------------------------------------------------------------------------
+   Neutrals pass through the four grays index.css already used, which keep
+   their exact values and simply gain neighbours:
+       #eee -> n-100     #666 -> n-600     #111 -> n-950
+   Hue ramps are interpolated in OKLab, so steps are perceptually even rather
+   than evenly spaced in sRGB.
+
+   Step index carries a fixed contract in BOTH themes:
+       50/100   light-theme tint surfaces     500/600  light-theme ink
+       200/300  dark-theme ink, borders       800/900  dark-theme tint surfaces
+   ========================================================================== */
+
+:root {
+  --n-0:    #ffffff;
+  --n-50:   #f7f7f7;
+  --n-100:  #eeeeee;
+  --n-200:  #dddddd;
+  --n-300:  #c4c4c4;
+  --n-400:  #a0a0a0;
+  --n-500:  #808080;  /* 3.95:1 on white — NON-TEXT ONLY (borders, rules) */
+  --n-600:  #666666;
+  --n-700:  #4d4d4d;
+  --n-800:  #333333;
+  --n-900:  #1a1a1a;
+  --n-950:  #111111;
+  --n-1000: #000000;
+
+  --accent-50:  #ecf8ff;
+  --accent-100: #d6e9ff;
+  --accent-200: #a9cbff;
+  --accent-300: #7cacf8;
+  --accent-400: #5a91eb;
+  --accent-500: #3675de;
+  --accent-600: #0b57d0;
+  --accent-700: #0038b0;
+  --accent-800: #001d80;
+  --accent-900: #000e64;
+
+  --success-50:  #e7fff2;
+  --success-100: #cff9e1;
+  --success-200: #9ae9c1;
+  --success-300: #5bd9a0;
+  --success-400: #42b37e;
+  --success-500: #288e5c;
+  --success-600: #0a6b3d;
+  --success-700: #00582c;
+  --success-800: #003b17;
+  --success-900: #002a0c;
+
+  --warning-50:  #fff8df;
+  --warning-100: #ffeac1;
+  --warning-200: #f9d081;
+  --warning-300: #f0b429;
+  --warning-400: #c78f1b;
+  --warning-500: #a06c0c;
+  --warning-600: #7a4b00;
+  --warning-700: #693b00;
+  --warning-800: #482300;
+  --warning-900: #351600;
+
+  --danger-50:  #fff0ec;
+  --danger-100: #ffdcd6;
+  --danger-200: #ffb4ab;
+  --danger-300: #ff8a80;
+  --danger-400: #e66b60;
+  --danger-500: #cd4b40;
+  --danger-600: #b3261e;
+  --danger-700: #900000;
+  --danger-800: #660000;
+  --danger-900: #4d0000;
+}
+
+/* ==========================================================================
+   §2  SCALES
+   --------------------------------------------------------------------------
+   Vertical space in grid units, horizontal in characters. index.css samples
+   0.5 / 1 / 1.5 / 2 of the line unit; this completes the scale without
+   changing any of those values.
+   ========================================================================== */
+
+:root {
+  --space-0:    0;
+  --space-0-25: calc(var(--grid-unit) * 0.25);   /*  4.8px */
+  --space-0-5:  calc(var(--grid-unit) * 0.5);    /*  9.6px */
+  --space-1:    var(--grid-unit);                /* 19.2px */
+  --space-1-5:  calc(var(--grid-unit) * 1.5);    /* 28.8px */
+  --space-2:    calc(var(--grid-unit) * 2);      /* 38.4px */
+  --space-3:    calc(var(--grid-unit) * 3);      /* 57.6px */
+  --space-4:    calc(var(--grid-unit) * 4);      /* 76.8px */
+  --space-6:    calc(var(--grid-unit) * 6);
+  --space-8:    calc(var(--grid-unit) * 8);
+
+  --space-col-0-5: 0.5ch;
+  --space-col-1:   1ch;
+  --space-col-1-5: 1.5ch;
+  --space-col-2:   2ch;
+  --space-col-3:   3ch;
+  --space-col-4:   4ch;
+
+  /* Type. index.css sizes h1 and h2; these cover the rest and the small
+     sizes the components need. Every size is paired with a line box that is a
+     whole number of grid units in §3 of components.css. */
+  --font-size-xs:   0.75rem;
+  --font-size-sm:   0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg:   1.25rem;
+  --font-size-xl:   1.5rem;
+  --font-size-2xl:  2rem;
+  --font-size-3xl:  3rem;
+
+  --line-height-1: var(--grid-unit);
+  --line-height-2: calc(var(--grid-unit) * 2);
+  --line-height-3: calc(var(--grid-unit) * 3);
+
+  --letter-spacing-caps: 0.08em;
+  --letter-spacing-none: 0;
+
+  /* Radius is 0. That is the design language, not an omission — a character
+     grid has square cells. The only curve in index.css is the radio control,
+     which must read as round to be recognisable. There is deliberately no
+     intermediate scale: any value between these two is off-system. */
+  --radius-none: 0;
+  --radius-full: 9999px;
+
+  /* index.css has no shadows at all, and expresses depth as a 2px translate on
+     :active — a key being pressed, not a card floating. These keep that idiom:
+     zero blur, zero spread, offsets on the same 2px rhythm as the borders. */
+  --shadow-none: none;
+  --shadow-1: 2px 2px 0 0 var(--color-shadow);
+  --shadow-2: 4px 4px 0 0 var(--color-shadow);
+  --shadow-3: 8px 8px 0 0 var(--color-shadow);
+  --press-offset: 2px;
+
+  /* index.css declares no transitions. The scale exists so components can
+     state intent; nothing here is slow enough to wait on. */
+  --duration-instant: 0ms;
+  --duration-fast:    80ms;
+  --duration-base:    160ms;
+  --duration-slow:    240ms;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out:      cubic-bezier(0, 0, 0, 1);
+  --ease-step:     steps(4, end);
+
+  /* Sparse on purpose — new layers go between, not on top. */
+  --z-base:    0;
+  --z-sticky:  100;
+  --z-overlay: 200;
+  --z-modal:   300;
+  --z-toast:   400;
+}
+
+/* ==========================================================================
+   §3  SEMANTIC ALIASES — LIGHT (the default)
+   --------------------------------------------------------------------------
+   Components address ONLY these names, never the ramps in §1. Every pairing
+   is verified against WCAG AA by tools/check-contrast.py — >=4.5:1 for text,
+   >=3:1 for borders, focus rings and other non-text indicators.
+   ========================================================================== */
+
+:root {
+  --color-bg:         var(--n-0);
+  --color-bg-subtle:  var(--n-50);
+  --color-bg-muted:   var(--n-100);   /* index.css's --background-color-alt */
+  --color-bg-inset:   var(--n-100);
+  --color-bg-overlay: rgb(0 0 0 / 0.6);
+
+  --color-text:          var(--n-1000);  /* 21:1   on bg */
+  --color-text-muted:    var(--n-600);   /* 5.74:1 on bg, 4.95:1 on bg-muted */
+  --color-text-subtle:   var(--n-700);   /* 8.45:1 */
+  --color-text-inverse:  var(--n-0);
+  --color-text-disabled: var(--n-500);
+
+  --color-border:        var(--n-1000);
+  --color-border-muted:  var(--n-400);   /* decorative rules ONLY */
+  --color-border-strong: var(--n-1000);
+  --color-shadow:        var(--n-1000);
+
+  /* A dedicated token so the ring can be tuned independently of the accent.
+     6.39:1 on bg and 5.5:1 on bg-muted — well past the 3:1 non-text minimum
+     on every surface it can land on. */
+  --color-focus:       var(--accent-600);
+  --focus-ring-width:  2px;
+  --focus-ring-offset: 2px;
+
+  --color-action:                 var(--n-1000);
+  --color-action-hover:           var(--n-800);
+  --color-action-active:          var(--n-900);
+  --color-action-text:            var(--n-0);
+  --color-action-subtle-bg:       transparent;
+  --color-action-subtle-bg-hover: var(--n-100);
+
+  /* Light-theme rule: hued ink at step 600 on a step-50 tint, white text on a
+     step-600 solid fill. */
+  --color-accent:        var(--accent-600);
+  --color-accent-hover:  var(--accent-700);
+  --color-accent-bg:     var(--accent-50);
+  --color-accent-border: var(--accent-600);
+  --color-accent-text:   var(--n-0);       /* on an accent fill: 6.39:1 */
+
+  --color-success:        var(--success-600);
+  --color-success-hover:  var(--success-700);
+  --color-success-bg:     var(--success-50);
+  --color-success-border: var(--success-600);
+  --color-success-text:   var(--n-0);      /* 6.60:1 */
+
+  --color-warning:        var(--warning-600);
+  --color-warning-hover:  var(--warning-700);
+  --color-warning-bg:     var(--warning-50);
+  --color-warning-border: var(--warning-600);
+  --color-warning-text:   var(--n-0);      /* 7.41:1 */
+
+  --color-danger:        var(--danger-600);
+  --color-danger-hover:  var(--danger-700);
+  --color-danger-bg:     var(--danger-50);
+  --color-danger-border: var(--danger-600);
+  --color-danger-text:   var(--n-0);       /* 6.54:1 */
+
+  /* Contrast is intentionally reduced — WCAG exempts disabled controls — but
+     kept legible enough to read the label. */
+  --color-disabled-bg:     var(--n-50);
+  --color-disabled-border: var(--n-400);
+  --color-disabled-text:   var(--n-600);
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   §4  SEMANTIC ALIASES — DARK
+   --------------------------------------------------------------------------
+   Declared twice on purpose:
+     (a) under prefers-color-scheme, guarded so an explicit [data-theme=light]
+         beats a dark OS setting;
+     (b) under [data-theme=dark], so an explicit toggle wins in the other
+         direction on a system set to light.
+   The two blocks are kept byte-identical; edit them together.
+   check-contrast.py fails the build if they drift.
+
+   The flip is an INVERSION, not a recolour: hued ink moves 600 -> 300, tint
+   surfaces move 50 -> 900, and solid fills take BLACK text instead of white.
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg:         var(--n-1000);
+    --color-bg-subtle:  var(--n-950);
+    --color-bg-muted:   var(--n-950);
+    --color-bg-inset:   var(--n-900);
+    --color-bg-overlay: rgb(0 0 0 / 0.75);
+
+    --color-text:          var(--n-0);
+    --color-text-muted:    var(--n-400);
+    --color-text-subtle:   var(--n-300);
+    --color-text-inverse:  var(--n-1000);
+    --color-text-disabled: var(--n-500);
+
+    --color-border:        var(--n-0);
+    --color-border-muted:  var(--n-700);
+    --color-border-strong: var(--n-0);
+    --color-shadow:        var(--n-0);
+
+    --color-focus: var(--accent-300);
+
+    --color-action:                 var(--n-0);
+    --color-action-hover:           var(--n-200);
+    --color-action-active:          var(--n-300);
+    --color-action-text:            var(--n-1000);
+    --color-action-subtle-bg:       transparent;
+    --color-action-subtle-bg-hover: var(--n-900);
+
+    --color-accent:        var(--accent-300);
+    --color-accent-hover:  var(--accent-200);
+    --color-accent-bg:     var(--accent-900);
+    --color-accent-border: var(--accent-300);
+    --color-accent-text:   var(--n-1000);
+
+    --color-success:        var(--success-300);
+    --color-success-hover:  var(--success-200);
+    --color-success-bg:     var(--success-900);
+    --color-success-border: var(--success-300);
+    --color-success-text:   var(--n-1000);
+
+    --color-warning:        var(--warning-300);
+    --color-warning-hover:  var(--warning-200);
+    --color-warning-bg:     var(--warning-900);
+    --color-warning-border: var(--warning-300);
+    --color-warning-text:   var(--n-1000);
+
+    --color-danger:        var(--danger-300);
+    --color-danger-hover:  var(--danger-200);
+    --color-danger-bg:     var(--danger-900);
+    --color-danger-border: var(--danger-300);
+    --color-danger-text:   var(--n-1000);
+
+    --color-disabled-bg:     var(--n-950);
+    --color-disabled-border: var(--n-700);
+    --color-disabled-text:   var(--n-500);
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg:         var(--n-1000);
+  --color-bg-subtle:  var(--n-950);
+  --color-bg-muted:   var(--n-950);
+  --color-bg-inset:   var(--n-900);
+  --color-bg-overlay: rgb(0 0 0 / 0.75);
+
+  --color-text:          var(--n-0);
+  --color-text-muted:    var(--n-400);
+  --color-text-subtle:   var(--n-300);
+  --color-text-inverse:  var(--n-1000);
+  --color-text-disabled: var(--n-500);
+
+  --color-border:        var(--n-0);
+  --color-border-muted:  var(--n-700);
+  --color-border-strong: var(--n-0);
+  --color-shadow:        var(--n-0);
+
+  --color-focus: var(--accent-300);
+
+  --color-action:                 var(--n-0);
+  --color-action-hover:           var(--n-200);
+  --color-action-active:          var(--n-300);
+  --color-action-text:            var(--n-1000);
+  --color-action-subtle-bg:       transparent;
+  --color-action-subtle-bg-hover: var(--n-900);
+
+  --color-accent:        var(--accent-300);
+  --color-accent-hover:  var(--accent-200);
+  --color-accent-bg:     var(--accent-900);
+  --color-accent-border: var(--accent-300);
+  --color-accent-text:   var(--n-1000);
+
+  --color-success:        var(--success-300);
+  --color-success-hover:  var(--success-200);
+  --color-success-bg:     var(--success-900);
+  --color-success-border: var(--success-300);
+  --color-success-text:   var(--n-1000);
+
+  --color-warning:        var(--warning-300);
+  --color-warning-hover:  var(--warning-200);
+  --color-warning-bg:     var(--warning-900);
+  --color-warning-border: var(--warning-300);
+  --color-warning-text:   var(--n-1000);
+
+  --color-danger:        var(--danger-300);
+  --color-danger-hover:  var(--danger-200);
+  --color-danger-bg:     var(--danger-900);
+  --color-danger-border: var(--danger-300);
+  --color-danger-text:   var(--n-1000);
+
+  --color-disabled-bg:     var(--n-950);
+  --color-disabled-border: var(--n-700);
+  --color-disabled-text:   var(--n-500);
+
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   §5  REDUCED MOTION
+   --------------------------------------------------------------------------
+   Collapsed at the token level so every component inherits the preference
+   without needing its own media query.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --press-offset:  0px;
+  }
+}
+
+/* --- src/a11y.css --- */
+/* ==========================================================================
+   a11y.css — focus indicators and control states
+   --------------------------------------------------------------------------
+   Kept in its own file, and written to depend on nothing else here, so it can
+   be offered upstream as a self-contained patch.
+
+   Load last.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Focus
+   --------------------------------------------------------------------------
+   index.css does:
+
+       button:focus, input:focus { --border-thickness: 3px; outline: none; }
+
+   Three problems in one rule:
+
+     1. It removes the outline in favour of a 2px -> 3px border change. A 1px
+        difference is very hard to perceive, and WCAG 2.2 SC 2.4.11 asks for a
+        focus indicator with real area and contrast.
+     2. Borders sit inside `border-box`, so growing one shrinks the content box
+        — focusing a control visibly reflows its own contents.
+     3. `:focus` also matches mouse clicks, so every control flashes an
+        indicator when clicked.
+
+   An outline fixes all three: it does not participate in layout, so nothing
+   moves, and `:focus-visible` restricts it to keyboard interaction.
+   ------------------------------------------------------------------------ */
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+summary:focus,
+[href]:focus,
+[tabindex]:focus {
+  /* Undo the border swap: keep the resting thickness on focus. */
+  --border-thickness: 2px;
+}
+
+:focus-visible {
+  outline: var(--focus-ring-width, 2px) solid var(--color-focus, currentColor);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+/* Only suppress the default ring where the rule above provides one. */
+:focus:not(:focus-visible) { outline: none; }
+
+/* --------------------------------------------------------------------------
+   Disabled
+   --------------------------------------------------------------------------
+   index.css has no disabled styling at all, so a disabled control is
+   indistinguishable from an active one. Contrast here is intentionally
+   reduced — WCAG exempts disabled controls — but stays legible enough to read
+   the label.
+   ------------------------------------------------------------------------ */
+
+:is(button, input, select, textarea):disabled,
+[aria-disabled="true"] {
+  background: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  border-color: var(--color-disabled-border);
+  cursor: not-allowed;
+}
+
+/* The press is a physical affordance; a dead control should not offer it. */
+:is(button, input):disabled:active,
+[aria-disabled="true"]:active { transform: none; }
+
+label:has(> input:disabled) {
+  color: var(--color-disabled-text);
+  cursor: not-allowed;
+}
+
+/* NOTE: no `[readonly]` styling here on purpose. Tinting readonly fields is a
+   reasonable idea in the abstract, but index.css's grid demo uses readonly
+   inputs as plain layout boxes, so the rule repaints part of the upstream
+   page. A layer that changes how the base's own documentation looks has
+   overstepped. Style readonly per-project if you want it. */
+
+/* --------------------------------------------------------------------------
+   Invalid
+   --------------------------------------------------------------------------
+   Driven by aria-invalid rather than :invalid, so the visual state matches
+   what assistive technology is told, and does not fire on fields the user has
+   not reached yet.
+   ------------------------------------------------------------------------ */
+
+:is(input, select, textarea)[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+/* --------------------------------------------------------------------------
+   Motion
+   ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Page-specific: everything above is the design system, verbatim.
+   ------------------------------------------------------------------------ */
+
+/* The short header fields are labels and states, not prose: on anything wider
+   than a phone, keep each on its own line so the table shrinks around them
+   instead of breaking a two-word value in half. Below 480px the extra columns
+   need the freedom to wrap again. */
+@media screen and (min-width: 481px) {
+  .header .nowrap { white-space: nowrap; }
+}
+
+/* The header's fourth cell has no field to carry, so it is filled with the
+   system's blue rather than left blank.
+
+   The raw ramp step, not the semantic --color-accent: that one lightens in
+   the dark theme so accented TEXT keeps its contrast, and this cell holds no
+   text. A flat block of colour should read as the same blue in both themes.  */
+td.fill {
+  padding: 0;
+  background: var(--accent-600);
+}
+
+/* index.css's .grid splits the measure into equal columns of whole character
+   cells, sized from the number of children. The hero is two of them: the
+   heading in the first, the one line of copy in the second.
+
+   Both children arrive with the system's own vertical margins, which inside a
+   flex row would set the two columns at different heights. Zeroing them lets
+   .hero's single top margin do the spacing for the whole row. */
+.hero {
+  margin-top: calc(var(--line-height) * 3);
+}
+
+.hero > * {
+  margin: 0;
+}
+
+/* The heading's line box is two lines tall, so its text sits on the second
+   one. Dropping the copy by a line puts the two on the same line of the grid
+   instead of leaving it floating against the heading's cap height. */
+.hero > p {
+  margin-top: var(--line-height);
+}
+
+/* A terminal cursor, one character cell wide, sitting on the grid. */
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: cursor-blink 1.2s steps(1, end) infinite;
+}
+
+@keyframes cursor-blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; }
+}
+
+/* index.css gives hr 1.5-line margins, which lands everything after it on a
+   half-line. On a page this short that is the only thing off the grid, so the
+   rule is squared up to whole lines. */
+hr {
+  margin: var(--line-height) 0;
+}
+
+footer {
+  margin-top: calc(var(--line-height) * 2);
+  color: var(--text-color-alt);
+}
+</style>
+</head>
+<body>
+
+<table class="header">
+  <tr>
+    <td colspan="2" rowspan="2" class="width-auto">
+      <h1 class="title">usual.page</h1>
+      <span class="subtitle">A usual place on the Web</span>
+    </td>
+    <th class="nowrap">Status</th>
+    <td class="width-min nowrap">WIP</td>
+  </tr>
+  <tr>
+    <th class="nowrap">Created</th>
+    <td class="width-min"><time datetime="2026-09-15" style="white-space: pre;">2026-09-15</time></td>
+  </tr>
+  <tr>
+    <th class="width-min nowrap">Author</th>
+    <td class="width-auto"><cite>usualguy</cite></td>
+    <td class="fill" colspan="2"></td>
+  </tr>
+</table>
+
+<main>
+  <div class="grid hero">
+    <h1>Coming soon<span class="cursor">/</span></h1>
+    <p>Nothing here yet.</p>
+  </div>
+
+  <hr />
+</main>
+
+<footer>
+  <p>&copy; 2026 usual.page</p>
+</footer>
+
+</body>
+</html>
